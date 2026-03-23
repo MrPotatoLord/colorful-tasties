@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://coswhyjln7bry"]
+
+[ext_resource type="Script" uid="uid://2rkvc6nhpoqn" path="res://Dudes/Player/player.gd" id="1_4ntmi"]
+[ext_resource type="Texture2D" uid="uid://b2k56ia6a8uke" path="res://textures/guy.png" id="2_4ntmi"]
+[ext_resource type="PackedScene" uid="uid://bcsp5ocl43v80" path="res://Dudes/DudeTemplates/DudeSprite.tscn" id="2_btcbx"]
+[ext_resource type="PackedScene" uid="uid://02xhd5wqvx8n" path="res://Dudes/DudeTemplates/DudeCollisionShape.tscn" id="4_gwnis"]
+[ext_resource type="Script" uid="uid://daq2cwa138ju6" path="res://Dudes/Player/head_collider.gd" id="5_bubop"]
+[ext_resource type="Script" uid="uid://djdxw1xrnhsst" path="res://Dudes/Player/ray_cast_3d.gd" id="6_hvd00"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_huibq"]
+height = 1.5390625
+
+[node name="Player" type="CharacterBody3D" unique_id=1283151124]
+collision_mask = 3
+script = ExtResource("1_4ntmi")
+
+[node name="Sprite3D" parent="." unique_id=994330599 instance=ExtResource("2_btcbx")]
+texture = ExtResource("2_4ntmi")
+
+[node name="CollisionShape3D" parent="." unique_id=1729396230 instance=ExtResource("4_gwnis")]
+
+[node name="HeadCollider" type="Area3D" parent="." unique_id=870413027]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_bubop")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="HeadCollider" unique_id=1565108387]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -1.0074109e-08, -0.23046875)
+shape = SubResource("CapsuleShape3D_huibq")
+
+[node name="HeadCollision" type="CollisionShape3D" parent="." unique_id=1066579290]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -1.0074109e-08, -0.23046875)
+shape = SubResource("CapsuleShape3D_huibq")
+disabled = true
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=2147317399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+target_position = Vector3(0, 0, 3)
+collision_mask = 4
+script = ExtResource("6_hvd00")
+
+[connection signal="body_entered" from="HeadCollider" to="HeadCollider" method="_on_body_entered"]
+[connection signal="body_exited" from="HeadCollider" to="HeadCollider" method="_on_body_exited"]

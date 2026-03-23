@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bcsp5ocl43v80"]
+
+[node name="DudeSprite" type="Sprite3D" unique_id=994330599]
+transform = Transform3D(0.394, 0, 0, 0, 0.394, 0, 0, 0, 0.394, 0, 0, 0)
+billboard = 1

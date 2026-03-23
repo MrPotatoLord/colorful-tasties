@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://coswhyjln7bry"]
+
+[ext_resource type="Script" uid="uid://2rkvc6nhpoqn" path="res://Dudes/Player/player.gd" id="1_4ntmi"]
+[ext_resource type="Texture2D" uid="uid://b2k56ia6a8uke" path="res://textures/guy.png" id="2_4ntmi"]
+[ext_resource type="PackedScene" uid="uid://bcsp5ocl43v80" path="res://Dudes/DudeTemplates/DudeSprite.tscn" id="2_btcbx"]
+[ext_resource type="PackedScene" uid="uid://02xhd5wqvx8n" path="res://Dudes/DudeTemplates/DudeCollisionShape.tscn" id="4_gwnis"]
+[ext_resource type="Script" uid="uid://c5d7w3xxbpvvl" path="res://Dudes/Player/head_collider.gd" id="5_bubop"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gwnis"]
+size = Vector3(2.162, 1.33, 2.826)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_huibq"]
+height = 1.5390625
+
+[node name="Player" type="CharacterBody3D" unique_id=1283151124]
+collision_mask = 3
+script = ExtResource("1_4ntmi")
+
+[node name="Sprite3D" parent="." unique_id=994330599 instance=ExtResource("2_btcbx")]
+texture = ExtResource("2_4ntmi")
+
+[node name="CollisionShape3D" parent="." unique_id=1729396230 instance=ExtResource("4_gwnis")]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1945062115]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1535149377]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09194946, 0)
+shape = SubResource("BoxShape3D_gwnis")
+
+[node name="HeadCollider" type="CharacterBody3D" parent="." unique_id=518193670]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_bubop")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="HeadCollider" unique_id=1565108387]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -1.0074109e-08, -0.23046875)
+shape = SubResource("CapsuleShape3D_huibq")
