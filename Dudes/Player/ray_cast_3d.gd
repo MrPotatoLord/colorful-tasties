@@ -11,6 +11,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _input(event: InputEvent) -> void:
-	if !event.is_action_pressed("interact"):
-		return
-	print(get_collider())
+	if event.is_action_pressed("interact"):
+		if get_collider():
+			var interaction = get_collider() as StaticBody3D
+			interaction.interact()

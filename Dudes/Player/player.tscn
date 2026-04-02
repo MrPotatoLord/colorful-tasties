@@ -1,11 +1,64 @@
 [gd_scene format=3 uid="uid://coswhyjln7bry"]
 
 [ext_resource type="Script" uid="uid://2rkvc6nhpoqn" path="res://Dudes/Player/player.gd" id="1_4ntmi"]
-[ext_resource type="Texture2D" uid="uid://b2k56ia6a8uke" path="res://textures/guy.png" id="2_4ntmi"]
-[ext_resource type="PackedScene" uid="uid://bcsp5ocl43v80" path="res://Dudes/DudeTemplates/DudeSprite.tscn" id="2_btcbx"]
+[ext_resource type="Texture2D" uid="uid://c2p6y2r20vysb" path="res://textures/Spritesheet.png" id="2_bubop"]
+[ext_resource type="Script" uid="uid://bdh3pknwchme1" path="res://Dudes/Player/animated_sprite_3d.gd" id="3_hvd00"]
 [ext_resource type="PackedScene" uid="uid://02xhd5wqvx8n" path="res://Dudes/DudeTemplates/DudeCollisionShape.tscn" id="4_gwnis"]
 [ext_resource type="Script" uid="uid://daq2cwa138ju6" path="res://Dudes/Player/head_collider.gd" id="5_bubop"]
 [ext_resource type="Script" uid="uid://djdxw1xrnhsst" path="res://Dudes/Player/ray_cast_3d.gd" id="6_hvd00"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvd00"]
+atlas = ExtResource("2_bubop")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bb3xl"]
+atlas = ExtResource("2_bubop")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnl5l"]
+atlas = ExtResource("2_bubop")
+region = Rect2(1000, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hoh1d"]
+atlas = ExtResource("2_bubop")
+region = Rect2(0, 500, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wo6xe"]
+atlas = ExtResource("2_bubop")
+region = Rect2(500, 500, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x0cbc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvd00")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bb3xl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnl5l")
+}],
+"loop": true,
+"name": &"walk_forw",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hoh1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wo6xe")
+}],
+"loop": true,
+"name": &"walk_side",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_huibq"]
 height = 1.5390625
@@ -14,8 +67,11 @@ height = 1.5390625
 collision_mask = 3
 script = ExtResource("1_4ntmi")
 
-[node name="Sprite3D" parent="." unique_id=994330599 instance=ExtResource("2_btcbx")]
-texture = ExtResource("2_4ntmi")
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=745327989]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_x0cbc")
+script = ExtResource("3_hvd00")
 
 [node name="CollisionShape3D" parent="." unique_id=1729396230 instance=ExtResource("4_gwnis")]
 
