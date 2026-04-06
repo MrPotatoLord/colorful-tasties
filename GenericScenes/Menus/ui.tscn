@@ -68,4 +68,4 @@ offset_right = 1238.0
 offset_bottom = 705.0
 texture = ExtResource("5_y1mn6")
 
-[connection signal="gting" from="TextureRect/VBoxContainer/MenuButton" to="." method="_on_menu_button_gting"]
+[connection signal="gting" from="TextureRect/VBoxContainer/MenuButton2" to="." method="_on_menu_button_2_gting"]

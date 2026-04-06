@@ -8,7 +8,6 @@ signal gting
 
 var target : Control
 var time := 0.0
-@onready var button: Button = $Button
 
 
 #fontstuff
@@ -20,23 +19,15 @@ var last_target_center : float
 #var difdif : float
 var clamped_d : int
 var clamped_m : int
-var textpos : Vector2
-
 
 
 func _ready() -> void:
-	$Button.text = " " + text
-	$Button/Container/Label.text = " " + text
+	%Button.text = " " + text
+	%Label.text = " " + text
 	$Control/ColorRect.color = background
 	$Control/Effect.material.set("shader_parameter/color", shader)
 
 func _process(delta: float) -> void:
-	#var change := cos(time*3)	
-	#$Button/Container.position.y += change
-	#$Control.position.y += change
-	#$Button/Container/Label.position.y -= change
-	#$Button/Container/Label.global_position = button.global_position
-	#time += delta
 	
 	
 	if target:
@@ -47,29 +38,28 @@ func _process(delta: float) -> void:
 		
 
 		
-		textpos = Vector2(0, target.global_position.y + target.size.y - size.y)
-		$Control.global_position = textpos
-		$Button/Container.global_position = textpos
+		%Container.global_position = get_text_pos()
+		$Control.global_position = get_text_pos()
 		
-		
-		$Button/Container/Label.global_position = button.global_position
+		%Label.global_position = %Button.global_position
 		
 		
 
 func _draw() -> void:
 	if target:
-		textpos = Vector2(0, target.global_position.y + target.size.y - size.y)
-		$Control.set_deferred("global_position", textpos)
+		$Control.set_deferred("global_position", get_text_pos())
 		
 func focus() -> void:
-	button.grab_focus.call_deferred()
+	%Button.grab_focus.call_deferred()
 
 	
 func set_neigbors(top: NodePath, bottom: NodePath) -> void:
-	button.focus_neighbor_top = top
-	button.focus_neighbor_bottom = bottom
+	%Button.focus_neighbor_top = top
+	%Button.focus_neighbor_bottom = bottom
 
-
+func get_text_pos() -> Vector2:
+	return Vector2(0, target.global_position.y + (target.size.y - size.y)/2)
+	#Vector2(0, target.global_position.y)
 
 
 func _fonty_size() -> void:
@@ -92,8 +82,8 @@ func _fonty_size() -> void:
 	
 	
 	
-	button.add_theme_font_size_override("font_size", 60+clamped_d)
-	$Button/Container/Label.add_theme_font_size_override("font_size", 60+clamped_d)
+	%Button.add_theme_font_size_override("font_size", 60+clamped_d)
+	%Label.add_theme_font_size_override("font_size", 60+clamped_d)
 	last_target_center = target_center
 	
 func _fonty_reresize() -> void:
@@ -119,11 +109,11 @@ func _fonty_resize() -> void:
 	clamped_d = clamp(difference, 2, 40)
 	clamped_d = remap(clamped_d, 2.0, 40.0, 1.4, 1.0)
 	
-	if button.text[-1] == " ":
-		button.text = button.text.left(-1)
+	if %Button.text[-1] == " ":
+		%Button.text = %Button.text.left(-1)
 	else:
-		button.text += " "
+		%Button.text += " "
 		
-	button.scale = Vector2(clamped_d, clamped_d)
+	%Button.scale = Vector2(clamped_d, clamped_d)
 	$Button/Container/Label.scale = Vector2(clamped_d, clamped_d)
 	#print(Vector2(clamped_d, clamped_d))

@@ -11,7 +11,6 @@ offset_right = 339.0
 offset_bottom = 61.0
 size_flags_vertical = 4
 theme = ExtResource("1_8p8yh")
-theme_override_constants/margin_top = 6
 script = ExtResource("2_xyyiv")
 
 [node name="Control" type="Control" parent="." unique_id=1817765631]
@@ -35,25 +34,33 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.533, 0.718, 1)
 
-[node name="Button" type="Button" parent="." unique_id=1908346647 groups=["menu_buttons"]]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1806470303]
+layout_mode = 2
+theme_override_constants/margin_top = 6
+
+[node name="Button" type="Button" parent="MarginContainer" unique_id=1908346647 groups=["menu_buttons"]]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-focus_neighbor_top = NodePath("../Control/Effect")
+focus_neighbor_top = NodePath("../../Control/Effect")
 button_mask = 0
 text = " EQUIPMENT"
 alignment = 0
 
-[node name="Container" type="Control" parent="Button" unique_id=797942979]
+[node name="Container" type="Control" parent="MarginContainer/Button" unique_id=797942979]
+unique_name_in_owner = true
 clip_contents = true
 layout_mode = 1
-anchors_preset = 15
+anchor_top = -0.09
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 0.49000025
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Button/Container" unique_id=298793911]
+[node name="Label" type="Label" parent="MarginContainer/Button/Container" unique_id=298793911]
+unique_name_in_owner = true
 layout_mode = 0
 offset_right = 381.0
 offset_bottom = 61.0
@@ -63,4 +70,4 @@ text = " EQUIPMENT"
 [node name="Node" type="Node" parent="." unique_id=312122919]
 script = ExtResource("3_b23d5")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
