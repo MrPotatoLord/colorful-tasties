@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://bdh3pknwchme1" path="res://Dudes/Player/animated_sprite_3d.gd" id="3_hvd00"]
 [ext_resource type="PackedScene" uid="uid://02xhd5wqvx8n" path="res://Dudes/DudeTemplates/DudeCollisionShape.tscn" id="4_gwnis"]
 [ext_resource type="Script" uid="uid://daq2cwa138ju6" path="res://Dudes/Player/head_collider.gd" id="5_bubop"]
-[ext_resource type="Script" uid="uid://djdxw1xrnhsst" path="res://Dudes/Player/ray_cast_3d.gd" id="6_hvd00"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hvd00"]
 atlas = ExtResource("2_bubop")
@@ -91,9 +90,8 @@ disabled = true
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=2147317399]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-target_position = Vector3(0, 0, 3)
+target_position = Vector3(0, 0, 2)
 collision_mask = 4
-script = ExtResource("6_hvd00")
 
 [connection signal="body_entered" from="HeadCollider" to="HeadCollider" method="_on_body_entered"]
 [connection signal="body_exited" from="HeadCollider" to="HeadCollider" method="_on_body_exited"]

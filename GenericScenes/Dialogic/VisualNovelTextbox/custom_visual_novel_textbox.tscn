@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bl43m5qw8pso3" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.gd" id="1_bpydr"]
 [ext_resource type="Script" uid="uid://bfc03rn8slceu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/animations.gd" id="2_xy7a2"]
 [ext_resource type="Shader" uid="uid://dl2ykmyphty5p" path="res://GenericScenes/Dialogic/text_bubble_shader.gdshader" id="3_0bhsv"]
-[ext_resource type="Script" uid="uid://drhfq6rmdeuri" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="3_4634k"]
+[ext_resource type="Script" uid="uid://p5ep2fcdrydo" path="res://GenericScenes/Dialogic/VisualNovelTextbox/dialogic_node_dialog_text.gd" id="4_60ck5"]
 [ext_resource type="Script" uid="uid://dpv2dfiv5dhmr" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="4_ma5mw"]
 [ext_resource type="Script" uid="uid://dve1vwse2peji" path="res://addons/dialogic/Modules/Text/node_next_indicator.gd" id="5_40a50"]
 [ext_resource type="Script" uid="uid://bklme8oymw6h7" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/autoadvance_indicator.gd" id="6_07xym"]
@@ -205,6 +205,7 @@ noise_type = 0
 fractal_type = 0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cmqm6"]
+width = 1549
 noise = SubResource("FastNoiseLite_qk12w")
 seamless = true
 
@@ -213,10 +214,10 @@ shader = ExtResource("3_0bhsv")
 shader_parameter/deformation_sampler = SubResource("NoiseTexture2D_cmqm6")
 shader_parameter/radius = 14.75999969243648
 shader_parameter/box_size = Vector2(100, 100)
-shader_parameter/box_padding = 15.0
-shader_parameter/wobble_amount = 0.06999999843536
-shader_parameter/wobble_speed = 3.0999999307088
-shader_parameter/wobble_detail = 0.499999988824
+shader_parameter/box_padding = 11.34
+shader_parameter/wobble_amount = 0.25999999418848
+shader_parameter/wobble_speed = 0.3999999910592
+shader_parameter/wobble_detail = 0.58999998681232
 
 [sub_resource type="FontVariation" id="FontVariation_v8y64"]
 
@@ -295,7 +296,7 @@ theme_override_constants/margin_left = 34
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 32
 
-[node name="DialogicNode_DialogText" type="RichTextLabel" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/MarginContainer" unique_id=402684443 node_paths=PackedStringArray("textbox_root")]
+[node name="DialogicNode_DialogText" type="RichTextLabel" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/MarginContainer" unique_id=402684443]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
@@ -307,8 +308,7 @@ theme_override_font_sizes/italics_font_size = 15
 bbcode_enabled = true
 text = "Some default text"
 visible_characters_behavior = 1
-script = ExtResource("3_4634k")
-textbox_root = NodePath("../..")
+script = ExtResource("4_60ck5")
 
 [node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/MarginContainer/DialogicNode_DialogText" unique_id=863517999]
 unique_name_in_owner = true

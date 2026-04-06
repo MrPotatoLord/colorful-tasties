@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cm3h8d5lckv5h"]
+
+[ext_resource type="Script" uid="uid://becxxnc58r76b" path="res://GenericScenes/main.gd" id="1_rklc2"]
+[ext_resource type="PackedScene" uid="uid://bcosswl045agl" path="res://Environments/template_level.tscn" id="2_nuyll"]
+[ext_resource type="PackedScene" uid="uid://b0pvxtwyaxxxq" path="res://GenericScenes/Menus/ui.tscn" id="3_nuyll"]
+
+[node name="Main" type="Node" unique_id=135109273]
+script = ExtResource("1_rklc2")
+
+[node name="3D" type="Node3D" parent="." unique_id=1347789518]
+
+[node name="Level" parent="3D" unique_id=1799492313 instance=ExtResource("2_nuyll")]
+
+[node name="UI" parent="." unique_id=36808208 instance=ExtResource("3_nuyll")]

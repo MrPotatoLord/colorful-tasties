@@ -1,0 +1,19 @@
+[gd_resource type="Theme" format=3 uid="uid://ccv4te7pvu5bx"]
+
+[ext_resource type="FontFile" uid="uid://c3qxcb2ge7vh5" path="res://textures/bahnschrift.ttf" id="1_aom26"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_naq7j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mevbr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aom26"]
+
+[resource]
+Button/font_sizes/font_size = 60
+Button/fonts/font = ExtResource("1_aom26")
+Button/styles/focus = SubResource("StyleBoxEmpty_naq7j")
+Button/styles/hover = SubResource("StyleBoxEmpty_mevbr")
+Button/styles/normal = SubResource("StyleBoxEmpty_aom26")
+Label/font_sizes/font_size = 60
+Label/fonts/font = ExtResource("1_aom26")
+VBoxContainer/constants/separation = 4

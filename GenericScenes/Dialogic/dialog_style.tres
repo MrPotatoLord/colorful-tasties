@@ -41,6 +41,7 @@ script = ExtResource("2_t8xp8")
 scene = ExtResource("6_nl20c")
 overrides = {
 "box_color_custom": "Color(1, 1, 1, 1)",
+"next_indicator_enabled": "false",
 "text_custom_color": "Color(0, 0, 0, 1)"
 }
 
@@ -75,4 +76,4 @@ layer_info = {
 "16": SubResource("Resource_tso85"),
 "17": SubResource("Resource_k0o35")
 }
-metadata/_latest_layer = ""
+metadata/_latest_layer = "13"

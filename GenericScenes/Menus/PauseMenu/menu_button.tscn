@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://c22oew1kf54ux"]
+
+[ext_resource type="Theme" uid="uid://ccv4te7pvu5bx" path="res://GenericScenes/Menus/PauseMenu/new_theme.tres" id="1_8p8yh"]
+[ext_resource type="Material" uid="uid://c03now6a5wu21" path="res://GenericScenes/Menus/PauseMenu/sh_material_coolified.tres" id="2_04uwf"]
+[ext_resource type="Script" uid="uid://ojma1tf5hvta" path="res://GenericScenes/Menus/PauseMenu/menu_button.gd" id="2_xyyiv"]
+[ext_resource type="Script" uid="uid://cyqxunst81wwu" path="res://GenericScenes/Menus/PauseMenu/node.gd" id="3_b23d5"]
+
+[node name="MenuButton" type="MarginContainer" unique_id=245285732]
+clip_contents = true
+offset_right = 339.0
+offset_bottom = 61.0
+size_flags_vertical = 4
+theme = ExtResource("1_8p8yh")
+theme_override_constants/margin_top = 6
+script = ExtResource("2_xyyiv")
+
+[node name="Control" type="Control" parent="." unique_id=1817765631]
+layout_mode = 2
+
+[node name="Effect" type="ColorRect" parent="Control" unique_id=1637699633]
+material = ExtResource("2_04uwf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1063970624]
+show_behind_parent = true
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.533, 0.718, 1)
+
+[node name="Button" type="Button" parent="." unique_id=1908346647 groups=["menu_buttons"]]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Control/Effect")
+button_mask = 0
+text = " EQUIPMENT"
+alignment = 0
+
+[node name="Container" type="Control" parent="Button" unique_id=797942979]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Button/Container" unique_id=298793911]
+layout_mode = 0
+offset_right = 381.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = " EQUIPMENT"
+
+[node name="Node" type="Node" parent="." unique_id=312122919]
+script = ExtResource("3_b23d5")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

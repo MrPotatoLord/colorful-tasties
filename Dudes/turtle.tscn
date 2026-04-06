@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bcsp5ocl43v80" path="res://Dudes/DudeTemplates/DudeSprite.tscn" id="2_5yr3m"]
 [ext_resource type="Texture2D" uid="uid://44i6boeyd2jy" path="res://textures/turtle.png" id="3_ogfoq"]
 [ext_resource type="PackedScene" uid="uid://doqw3kyj1ow47" path="res://Dudes/DudeTemplates/interaction_area.tscn" id="4_5yr3m"]
-[ext_resource type="Resource" uid="uid://du43sc54qsyue" path="res://Dudes/TestTimeline.dtl" id="5_ogfoq"]
 
 [node name="Turtle" type="StaticBody3D" unique_id=1363151261]
 
@@ -14,4 +13,6 @@
 texture = ExtResource("3_ogfoq")
 
 [node name="InteractionArea" parent="." unique_id=422577751 instance=ExtResource("4_5yr3m")]
-dialogue = ExtResource("5_ogfoq")
+dialogue = "Wahoo YAYAYAWahoo YAYAYAWahoo YAYAYAWahoo YAYAYAWahoo YAYAYAWahoo YAYAYAWahoo YAYAYAWahoo YAYAYAWahoo 
+
+geag"
