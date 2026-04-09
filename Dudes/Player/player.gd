@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	if !GM.is_talking:
+	if !GM.stopped:
 		_move(Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down"), delta)
 	else:
 		_move(Vector2.ZERO, delta)
@@ -44,7 +44,7 @@ func _move(input_dir: Vector2, _delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
 func _input(event: InputEvent) -> void:
-	if !GM.is_talking:
+	if !GM.stopped:
 		if event.is_action_pressed("interact"):
 			if $RayCast3D.get_collider():
 				var interaction = $RayCast3D.get_collider() as StaticBody3D

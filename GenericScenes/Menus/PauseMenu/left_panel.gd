@@ -8,7 +8,7 @@ var target: Control
 func _ready() -> void:
 	target = $TextureRect/VBoxContainer.get_child(0)
 	selection.size = $TextureRect/VBoxContainer.get_child(0).size
-	selection.position = $TextureRect/VBoxContainer.get_child(0).position
+	#selection.position = $TextureRect/VBoxContainer.get_child(0).position
 	get_viewport().gui_focus_changed.connect(_on_focus_changedchanged)
 	_set_focus()
 	buttons[0].focus()

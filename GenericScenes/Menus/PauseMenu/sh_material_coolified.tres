@@ -20,4 +20,4 @@ shader_parameter/surf_speed = 1.0
 shader_parameter/surf_angle = 1.5699998773626298
 shader_parameter/surf_magnitude = 0.0
 shader_parameter/s11 = -7.000000067056
-shader_parameter/sinpowder = 1.0
+shader_parameter/sinpowder = 8.0

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://becxxnc58r76b" path="res://GenericScenes/main.gd" id="1_rklc2"]
 [ext_resource type="PackedScene" uid="uid://bcosswl045agl" path="res://Environments/template_level.tscn" id="2_nuyll"]
-[ext_resource type="PackedScene" uid="uid://b0pvxtwyaxxxq" path="res://GenericScenes/Menus/ui.tscn" id="3_nuyll"]
 
 [node name="Main" type="Node" unique_id=135109273]
 script = ExtResource("1_rklc2")
@@ -11,4 +10,25 @@ script = ExtResource("1_rklc2")
 
 [node name="Level" parent="3D" unique_id=1799492313 instance=ExtResource("2_nuyll")]
 
-[node name="UI" parent="." unique_id=36808208 instance=ExtResource("3_nuyll")]
+[node name="UI" type="Control" parent="." unique_id=687171217]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="UI" unique_id=504418312]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="UI/SubViewportContainer" unique_id=1799994011]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4

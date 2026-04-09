@@ -4,7 +4,7 @@ var Main : Node
 var is_talking := false
 var is_menus := false
 var stopped : bool :
-	get: return is_talking and is_menus
+	get: return is_talking or is_menus
 	
 
 func _ready() -> void:
