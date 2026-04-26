@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://c1363ei0t5irh" path="res://textures/grass.png" id="1_r7kk3"]
 [ext_resource type="PackedScene" uid="uid://coswhyjln7bry" path="res://Dudes/Player/player.tscn" id="2_a8qx8"]
 [ext_resource type="PackedScene" uid="uid://cswq3h88cl4vu" path="res://Dudes/turtle.tscn" id="3_a8qx8"]
+[ext_resource type="Script" uid="uid://b8gkdwlvq5s3q" path="res://GenericScenes/Battle/airh_fighter.gd" id="4_x0gcc"]
+[ext_resource type="PackedScene" uid="uid://v0w7vmg3dsfo" path="res://TempDelete/node.tscn" id="5_ni3xp"]
+[ext_resource type="PackedScene" uid="uid://c4hf6rk6rdufy" path="res://textures/GenericModels/table.blend" id="5_x0gcc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
 albedo_texture = ExtResource("1_r7kk3")
@@ -24,6 +27,14 @@ sky_material = SubResource("ProceduralSkyMaterial_7dm0k")
 background_mode = 2
 sky = SubResource("Sky_ig7tw")
 tonemap_mode = 2
+
+[sub_resource type="Resource" id="Resource_aex51"]
+script = ExtResource("4_x0gcc")
+metadata/_custom_type_script = "uid://b8gkdwlvq5s3q"
+
+[sub_resource type="Resource" id="Resource_ni3xp"]
+script = ExtResource("4_x0gcc")
+metadata/_custom_type_script = "uid://b8gkdwlvq5s3q"
 
 [node name="Level" type="Node3D" unique_id=1799492313]
 
@@ -55,3 +66,17 @@ transform = Transform3D(1, 0, 0, 0, 0.45518756, 0.8903956, 0, -0.8903956, 0.4551
 
 [node name="Turtle" parent="." unique_id=1363151261 instance=ExtResource("3_a8qx8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8692253, 1.096, -1.5889935)
+battle = SubResource("Resource_aex51")
+dialogue = "ggea
+- Yes
+- No
+- Maybe"
+
+[node name="Node" parent="Turtle" unique_id=1803980454 instance=ExtResource("5_ni3xp")]
+
+[node name="table" parent="." unique_id=1293929175 instance=ExtResource("5_x0gcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9162629, 1.7897613, -2.9077172)
+
+[node name="Turtle2" parent="." unique_id=233200377 instance=ExtResource("3_a8qx8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.216833, 1.096, 2.387713)
+battle = SubResource("Resource_ni3xp")

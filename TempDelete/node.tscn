@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://v0w7vmg3dsfo"]
+
+[ext_resource type="Script" uid="uid://bfamugifr8rbt" path="res://TempDelete/node.gd" id="1_pfwou"]
+
+[node name="Node" type="Node" unique_id=1803980454]
+script = ExtResource("1_pfwou")

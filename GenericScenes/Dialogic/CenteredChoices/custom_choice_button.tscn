@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c0fvyi26jncke"]
+
+[ext_resource type="Script" uid="uid://bldt7xlfum7ov" path="res://addons/dialogic/Modules/Choice/node_choice_button.gd" id="1_d5jbx"]
+
+[node name="DialogicNode_ChoiceButton" type="Button" unique_id=1702674625]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_d5jbx")
+metadata/_custom_type_script = "uid://bldt7xlfum7ov"

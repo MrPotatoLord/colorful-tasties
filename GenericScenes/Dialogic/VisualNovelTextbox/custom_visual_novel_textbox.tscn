@@ -275,6 +275,7 @@ offset_top = -64.0
 offset_right = 183.0
 grow_horizontal = 2
 grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
 
 [node name="DialogTextPanel" type="PanelContainer" parent="Anchor/AnimationParent/Sizer" unique_id=338291197]
@@ -292,19 +293,16 @@ metadata/_edit_layout_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Anchor/AnimationParent/Sizer/DialogTextPanel" unique_id=343389301]
 layout_mode = 2
-theme_override_constants/margin_left = 34
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 32
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 19
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 19
 
 [node name="DialogicNode_DialogText" type="RichTextLabel" parent="Anchor/AnimationParent/Sizer/DialogTextPanel/MarginContainer" unique_id=402684443]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/normal_font_size = 15
-theme_override_font_sizes/bold_font_size = 15
-theme_override_font_sizes/bold_italics_font_size = 15
-theme_override_font_sizes/italics_font_size = 15
 bbcode_enabled = true
 text = "Some default text"
 visible_characters_behavior = 1

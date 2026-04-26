@@ -4,7 +4,8 @@ extends StaticBody3D
 @export var test : BoxShape3D
 
 func _ready() -> void:
-	pass
+	if get_parent().dialogue:
+		dialogue = get_parent().dialogue
 	
 func interact():
 	if dialogue.is_empty():

@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://cswq3h88cl4vu"]
 
 [ext_resource type="PackedScene" uid="uid://02xhd5wqvx8n" path="res://Dudes/DudeTemplates/DudeCollisionShape.tscn" id="1_iqvdc"]
+[ext_resource type="Script" uid="uid://ddux2lw8c5yq1" path="res://Dudes/turtle.gd" id="1_ogfoq"]
 [ext_resource type="PackedScene" uid="uid://bcsp5ocl43v80" path="res://Dudes/DudeTemplates/DudeSprite.tscn" id="2_5yr3m"]
 [ext_resource type="Texture2D" uid="uid://44i6boeyd2jy" path="res://textures/turtle.png" id="3_ogfoq"]
 [ext_resource type="PackedScene" uid="uid://doqw3kyj1ow47" path="res://Dudes/DudeTemplates/interaction_area.tscn" id="4_5yr3m"]
 
 [node name="Turtle" type="StaticBody3D" unique_id=1363151261]
+script = ExtResource("1_ogfoq")
 
 [node name="CollisionShape3D" parent="." unique_id=1729396230 instance=ExtResource("1_iqvdc")]
 

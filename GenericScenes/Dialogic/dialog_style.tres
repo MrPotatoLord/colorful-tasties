@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="5_1ifhf"]
 [ext_resource type="PackedScene" uid="uid://bpji3tylmhpx2" path="res://GenericScenes/Dialogic/VisualNovelTextbox/custom_visual_novel_textbox.tscn" id="6_nl20c"]
 [ext_resource type="PackedScene" uid="uid://dsbwnp5hegnu3" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Glossary/glossary_popup_layer.tscn" id="7_mdncb"]
-[ext_resource type="PackedScene" uid="uid://dhk6j6eb6e3q" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.tscn" id="8_eryoj"]
+[ext_resource type="PackedScene" uid="uid://bwm8vw0l51yly" path="res://GenericScenes/Dialogic/CenteredChoices/custom_centered_choices.tscn" id="8_nl20c"]
 [ext_resource type="PackedScene" uid="uid://cvgf4c6gg0tsy" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_TextInput/text_input_layer.tscn" id="9_hbjrg"]
 [ext_resource type="PackedScene" uid="uid://lx24i8fl6uo" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_History/history_layer.tscn" id="10_cbktp"]
 [ext_resource type="Script" uid="uid://dv08k6ljua6fm" path="res://addons/dialogic/Resources/dialogic_style.gd" id="11_11adf"]
@@ -18,7 +18,8 @@ scene = ExtResource("1_nl20c")
 overrides = {
 "follow_viewport": "true",
 "global_bg_color": "Color(1, 1, 1, 0.9019608)",
-"global_font_color": "Color(0, 0, 0, 1)"
+"global_font_color": "Color(0, 0, 0, 1)",
+"global_font_size": "25.0"
 }
 
 [sub_resource type="Resource" id="Resource_shpvl"]
@@ -41,6 +42,7 @@ script = ExtResource("2_t8xp8")
 scene = ExtResource("6_nl20c")
 overrides = {
 "box_color_custom": "Color(1, 1, 1, 1)",
+"box_size": "Vector2(750, 230)",
 "next_indicator_enabled": "false",
 "text_custom_color": "Color(0, 0, 0, 1)"
 }
@@ -51,7 +53,15 @@ scene = ExtResource("7_mdncb")
 
 [sub_resource type="Resource" id="Resource_kxplb"]
 script = ExtResource("2_t8xp8")
-scene = ExtResource("8_eryoj")
+scene = ExtResource("8_nl20c")
+overrides = {
+"boxes_offset": "Vector2(0, -40)",
+"boxes_stylebox_focused": "\"res://GenericScenes/Dialogic/CenteredChoices/choice_panel_focus.tres\"",
+"boxes_stylebox_hovered": "\"res://GenericScenes/Dialogic/CenteredChoices/choice_panel_hover.tres\"",
+"boxes_stylebox_normal": "\"res://GenericScenes/Dialogic/CenteredChoices/choice_panel_normal.tres\"",
+"text_color_custom": "Color(0, 0, 0, 1)",
+"text_color_focused": "Color(0, 0, 0, 1)"
+}
 
 [sub_resource type="Resource" id="Resource_tso85"]
 script = ExtResource("2_t8xp8")
@@ -76,4 +86,4 @@ layer_info = {
 "16": SubResource("Resource_tso85"),
 "17": SubResource("Resource_k0o35")
 }
-metadata/_latest_layer = "13"
+metadata/_latest_layer = ""
