@@ -63,7 +63,10 @@ Blablabla
 
 [node name="Turtle3" parent="." unique_id=280681560 instance=ExtResource("3_a8qx8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8692253, 1.096, -0.052919388)
-Dialog = "blarg?"
+Dialog = "ggea
+- Yes
+- No
+- Maybe"
 
 [node name="table" parent="." unique_id=1293929175 instance=ExtResource("5_x0gcc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9162629, 1.7897613, -2.9077172)
