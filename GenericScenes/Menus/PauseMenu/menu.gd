@@ -5,10 +5,10 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	left_panel.position.x = -2000
-	GM.is_menus = true
+	G.IsMenus = true
 
 func _exit_tree() -> void:
-	GM.is_menus = false
+	G.IsMenus = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

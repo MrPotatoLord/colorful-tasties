@@ -12,14 +12,14 @@ config_version=5
 
 config/name="Colorful Tasties"
 run/main_scene="uid://cm3h8d5lckv5h"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
 run/max_fps=144
 config/icon="uid://44i6boeyd2jy"
 
 [autoload]
 
 Dialogic="*uid://ds2q0uclmolvu"
-GM="*uid://ct3i18xu05daf"
+G="*uid://jjk8ax4tmsbe"
 
 [debug]
 
@@ -80,6 +80,10 @@ window/size/window_width_override=1152
 window/size/window_height_override=648
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[dotnet]
+
+project/assembly_name="Colorful Tasties"
 
 [editor]
 

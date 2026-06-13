@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://coswhyjln7bry"]
 
-[ext_resource type="Script" uid="uid://2rkvc6nhpoqn" path="res://Dudes/Player/player.gd" id="1_4ntmi"]
+[ext_resource type="Script" uid="uid://b02gb8w1ljma6" path="res://Dudes/Player/Player.cs" id="1_bubop"]
 [ext_resource type="Texture2D" uid="uid://c2p6y2r20vysb" path="res://textures/Spritesheet.png" id="2_bubop"]
-[ext_resource type="Script" uid="uid://bdh3pknwchme1" path="res://Dudes/Player/animated_sprite_3d.gd" id="3_hvd00"]
+[ext_resource type="Script" uid="uid://dp8tlpxo4y3og" path="res://Dudes/Player/AnimatedSprite3D.cs" id="3_bubop"]
 [ext_resource type="PackedScene" uid="uid://02xhd5wqvx8n" path="res://Dudes/DudeTemplates/DudeCollisionShape.tscn" id="4_gwnis"]
 [ext_resource type="Script" uid="uid://daq2cwa138ju6" path="res://Dudes/Player/head_collider.gd" id="5_bubop"]
 
@@ -64,13 +64,13 @@ height = 1.5390625
 
 [node name="Player" type="CharacterBody3D" unique_id=1283151124]
 collision_mask = 3
-script = ExtResource("1_4ntmi")
+script = ExtResource("1_bubop")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=745327989]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_x0cbc")
-script = ExtResource("3_hvd00")
+script = ExtResource("3_bubop")
 
 [node name="CollisionShape3D" parent="." unique_id=1729396230 instance=ExtResource("4_gwnis")]
 

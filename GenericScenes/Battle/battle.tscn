@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d0pjn51fwei7q"]
+
+[ext_resource type="Script" uid="uid://cn1medawr8ewl" path="res://GenericScenes/Battle/Battle.cs" id="1_hg6q2"]
+[ext_resource type="PackedScene" uid="uid://c4hf6rk6rdufy" path="res://textures/GenericModels/table.blend" id="1_kovnu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hg6q2"]
+albedo_color = Color(0.18562543, 2.6044752e-05, 0.18809482, 1)
+
+[node name="Battle" type="Node3D" unique_id=2084397416]
+script = ExtResource("1_hg6q2")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1329325911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5294342, -0.10015869, -0.58721924)
+material_override = SubResource("StandardMaterial3D_hg6q2")
+use_collision = true
+size = Vector3(9.746613, 0.12011719, 9.148315)
+
+[node name="table" parent="." unique_id=1293929175 instance=ExtResource("1_kovnu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2258859, 0)
