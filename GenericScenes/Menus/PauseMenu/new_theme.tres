@@ -5,8 +5,14 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_naq7j"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mevbr"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aom26"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k40ii"]
 
 [resource]
 Button/font_sizes/font_size = 60
@@ -14,6 +20,7 @@ Button/fonts/font = ExtResource("1_aom26")
 Button/styles/focus = SubResource("StyleBoxEmpty_naq7j")
 Button/styles/hover = SubResource("StyleBoxEmpty_mevbr")
 Button/styles/normal = SubResource("StyleBoxEmpty_aom26")
+Button/styles/pressed = SubResource("StyleBoxEmpty_k40ii")
 Label/font_sizes/font_size = 60
 Label/fonts/font = ExtResource("1_aom26")
 VBoxContainer/constants/separation = 4

@@ -1,119 +1,78 @@
 extends Control
 
+signal gting(difference: float)
 
 @export var text := "EQUIPMENT"
 @export_color_no_alpha var background := Color(0.0, 0.533, 0.718)
 @export_color_no_alpha var shader := Color(0.0, 0.502, 1.0)
-signal gting
 
-var target : Control
-var time := 0.0
+var target: Control
 
+# Font tracking variables
+var difference: float = 100.0
+var last_target_center: float = 0.0
+var last_applied_font_size: int = -1 # Used to prevent updating the theme every frame
+var text_pos: Vector2
 
-#fontstuff
-var target_center: float
-var self_center : float
-var difference : float = 100.0
-var last_target_center : float
-#var last_difference : float
-#var difdif : float
-var clamped_d : int
-var clamped_m : int
+@onready var button: Button = %Button
+@onready var label: Label = %Label
+@onready var container: Control = %Container
+@onready var fx_control: Control = $Control
+@onready var color_rect: ColorRect = $Control/ColorRect
+@onready var effect: ColorRect = $Control/Effect 
 
 
 func _ready() -> void:
-	%Button.text = " " + text
-	%Label.text = " " + text
-	$Control/ColorRect.color = background
-	$Control/Effect.material.set("shader_parameter/color", shader)
+	button.text = " " + text
+	label.text = " " + text
+	color_rect.color = background
+	effect.material.set("shader_parameter/color", shader)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	if not target:
+		return
+
+	var target_center := target.global_position.y + (target.size.y / 2.0)
+	var self_center := global_position.y + (size.y / 2.0)
 	
+	_update_font_size(target_center, self_center)
 	
-	if target:
-
-		target_center = target.global_position.y + target.size.y / 2
-		self_center = global_position.y + size.y / 2
-		_fonty_size.call_deferred()
-		
-
-		
-		%Container.global_position = get_text_pos()
-		$Control.global_position = get_text_pos()
-		
-		%Label.global_position = %Button.global_position
-		
-		
+	text_pos = Vector2(0, target.global_position.y + (target.size.y - size.y) / 2.0)
+	
+	container.global_position = text_pos
+	fx_control.global_position = text_pos
+	label.global_position = button.global_position
 
 func _draw() -> void:
 	if target:
-		$Control.set_deferred("global_position", get_text_pos())
-		
+		fx_control.set_deferred("global_position", text_pos) 
+
 func focus() -> void:
-	%Button.grab_focus.call_deferred()
+	button.grab_focus.call_deferred()
 
-	
 func set_neigbors(top: NodePath, bottom: NodePath) -> void:
-	%Button.focus_neighbor_top = top
-	%Button.focus_neighbor_bottom = bottom
+	button.focus_neighbor_top = top
+	button.focus_neighbor_bottom = bottom
 
-func get_text_pos() -> Vector2:
-	return Vector2(0, target.global_position.y + (target.size.y - size.y)/2)
-	#Vector2(0, target.global_position.y)
-
-
-func _fonty_size() -> void:
-
-	
-	
+func _update_font_size(target_center: float, self_center: float) -> void:
 	var dir := target_center - last_target_center
-
-	var is_towards := true if ((self_center - target_center) * dir) > 0 else false
+	var is_towards := ((self_center - target_center) * dir) > 0
 	
 	if is_towards:
 		difference = min(difference, abs(target_center - self_center))
 	else:
 		difference = max(difference, abs(target_center - self_center))
 
-	
-	clamped_d = clamp(difference, 2, 40)
-	clamped_d = remap(clamped_d, 2, 40, 25, 0)
 	gting.emit(difference)
 	
+	# Use clampf for floats, then cast to int after remap
+	var clamped_d := clampf(difference, 2.0, 40.0)
+	var mapped_d := int(remap(clamped_d, 2.0, 40.0, 25.0, 0.0))
+	var new_font_size := 60 + mapped_d
 	
-	
-	%Button.add_theme_font_size_override("font_size", 60+clamped_d)
-	%Label.add_theme_font_size_override("font_size", 60+clamped_d)
-	last_target_center = target_center
-	
-func _fonty_reresize() -> void:
-	target_center = target.global_position.y + target.size.y / 2
-	self_center = global_position.y + size.y / 2
-	difference = abs(target_center - self_center)
-	clamped_d = clamp(difference, 2, 40)
-	clamped_d = remap(clamped_d, 2.0, 40.0, 1.4, 1.0)
-	
-	
-	
-	#if button.text[-1] == " ":
-		#button.text = button.text.left(-1)
-	#else:
-		#button.text += " "
-		
-	size = Vector2(clamped_d, clamped_d)
+	if new_font_size != last_applied_font_size:
+		button.add_theme_font_size_override("font_size", new_font_size)
+		label.add_theme_font_size_override("font_size", new_font_size)
+		last_applied_font_size = new_font_size
 
-func _fonty_resize() -> void:
-	target_center = target.global_position.y + target.size.y / 2
-	self_center = global_position.y + size.y / 2
-	difference = abs(target_center - self_center)
-	clamped_d = clamp(difference, 2, 40)
-	clamped_d = remap(clamped_d, 2.0, 40.0, 1.4, 1.0)
-	
-	if %Button.text[-1] == " ":
-		%Button.text = %Button.text.left(-1)
-	else:
-		%Button.text += " "
-		
-	%Button.scale = Vector2(clamped_d, clamped_d)
-	$Button/Container/Label.scale = Vector2(clamped_d, clamped_d)
-	#print(Vector2(clamped_d, clamped_d))
+	last_target_center = target_center
