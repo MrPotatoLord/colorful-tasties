@@ -15,6 +15,3 @@ script = ExtResource("1_ogfoq")
 texture = ExtResource("3_ogfoq")
 
 [node name="InteractionArea" parent="." unique_id=422577751 instance=ExtResource("4_5yr3m")]
-dialogue = "Wahoo YAYAYAWahoo YAYAYAWahoo YAYAYAWahoo YAYAYAWahoo YAYAYAWahoo YAYAYAWahoo YAYAYAWahoo YAYAYAWahoo 
-
-geag"

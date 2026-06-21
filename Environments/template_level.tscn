@@ -80,3 +80,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9162629, 1.7897613, -2.9077
 [node name="Turtle2" parent="." unique_id=233200377 instance=ExtResource("3_a8qx8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.216833, 1.096, 2.387713)
 battle = SubResource("Resource_ni3xp")
+dialogue = "IM GONNA KILL YOU"

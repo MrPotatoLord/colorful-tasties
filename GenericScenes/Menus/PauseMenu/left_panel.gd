@@ -1,43 +1,44 @@
 extends Control
 
 var target: Control
+
+@onready var texture_rect_2: TextureRect = $TextureRect2 
 @onready var selection: Control = $TextureRect/Selection
-@onready var buttons = $TextureRect/VBoxContainer.get_children()
-@onready var real_buttons = get_tree().get_nodes_in_group("menu_buttons")
+@onready var vbox_container: VBoxContainer = $TextureRect/VBoxContainer
+@onready var buttons: Array[Node] = vbox_container.get_children()
+@onready var real_buttons: Array[Node] = get_tree().get_nodes_in_group("menu_buttons")
 
 func _ready() -> void:
-	target = $TextureRect/VBoxContainer.get_child(0)
-	selection.size = $TextureRect/VBoxContainer.get_child(0).size
-	#selection.position = $TextureRect/VBoxContainer.get_child(0).position
+	target = buttons[0]
+	selection.size = target.size
+	
 	get_viewport().gui_focus_changed.connect(_on_focus_changedchanged)
-	_set_focus()
+	
+	_setup_menu()
+	
 	buttons[0].focus()
 
-
 func _process(delta: float) -> void:
-	selection.global_position = button_pos_lerp(delta)
-	#selection.size.y = max(selection.size.y, lerp(selection.size.y, target.size.y, 5*delta))
-	selection.size.y = max(selection.size.y, target.size.y)
+	var target_y := target.global_position.y + (target.size.y - selection.size.y) / 2.0
+	selection.global_position.y = lerp(selection.global_position.y, target_y, 5.0 * delta)
+	
+	#selection.size.y = max(selection.size.y, target.size.y) 
+	
 	if Input.is_action_just_pressed("interact"):
-		_set_focus()
+		_setup_menu()
 
+func _setup_menu() -> void:
+	var count := buttons.size()
 
-func _set_focus() -> void:
-	for i in range(buttons.size()):
-		if i+1 != buttons.size():
-			buttons[i].set_neigbors(real_buttons[i-1].get_path(), real_buttons[i+1].get_path())
-		else:
-			buttons[i].set_neigbors(real_buttons[i-1].get_path(), real_buttons[0].get_path())
-			
-	for i in buttons:
-		i.target = selection
+	for i in range(count):
+		var prev_node := real_buttons[i - 1]
+		var next_node := real_buttons[(i + 1) % count] 
+		
+		buttons[i].set_neigbors(prev_node.get_path(), next_node.get_path())
+		buttons[i].target = selection
 
 func _on_focus_changedchanged(control: Control) -> void:
 	target = control.owner
 
-func button_pos_lerp(delta: float) -> Vector2:
-	var sonuc = target.global_position.y + (target.size.y - selection.size.y)/2
-	return Vector2(0, lerp(selection.global_position.y, sonuc, 5*delta))
-
-func _on_menu_button_2_gting(num) -> void:
-	$TextureRect2.position.y = 270.0 + num*10
+func _on_menu_button_2_gting(num: float) -> void:
+	texture_rect_2.position.y = 270.0 + (num * 10.0)
