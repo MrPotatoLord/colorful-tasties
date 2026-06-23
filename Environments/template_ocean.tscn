@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://jqkm4d8vfnd4"]
+
+[ext_resource type="Texture2D" uid="uid://bpwdh3tuc4njo" path="res://textures/Overworld/Common/sea_waves_wow.png" id="1_tr146"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0fp3p"]
+emission_shape = 3
+emission_box_extents = Vector3(0, 0, 0)
+direction = Vector3(1, -0.9, 1)
+spread = 0.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rrn2u"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+depth_draw_mode = 2
+shading_mode = 0
+diffuse_mode = 3
+albedo_texture = ExtResource("1_tr146")
+heightmap_scale = 3.0
+uv1_scale = Vector3(6, 1, 1)
+grow_amount = 16.0
+proximity_fade_distance = 49.95
+stencil_flags = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gtfn0"]
+lightmap_size_hint = Vector2i(12, 12)
+material = SubResource("StandardMaterial3D_rrn2u")
+size = Vector2(78.75, 4.145)
+orientation = 2
+
+[node name="GPUParticles3D" type="GPUParticles3D" unique_id=2121644447]
+transform = Transform3D(1, 0, 0, 0, 0.76604444, 0.6427876, 0, -0.6427876, 0.76604444, 0, 0, 0)
+ignore_occlusion_culling = true
+amount = 65
+lifetime = 60.0
+fixed_fps = 1
+draw_order = 2
+process_material = SubResource("ParticleProcessMaterial_0fp3p")
+draw_pass_1 = SubResource("PlaneMesh_gtfn0")

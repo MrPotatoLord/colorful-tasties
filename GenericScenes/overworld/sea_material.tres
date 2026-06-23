@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://33x3wg7rn7ol"]
+
+[ext_resource type="Shader" uid="uid://b0juns0obs6jr" path="res://GenericScenes/overworld/sea_color_vertex.gdshader" id="1_5f66h"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_5f66h")
+shader_parameter/albedo = Color(0.2784314, 0.45882353, 0.6431373, 1)
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/wave_speed = 1.0
+shader_parameter/wave_height = 0.09
+shader_parameter/wave_frequency = 2.0

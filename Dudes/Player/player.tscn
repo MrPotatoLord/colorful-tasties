@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://02xhd5wqvx8n" path="res://Dudes/DudeTemplates/DudeCollisionShape.tscn" id="4_gwnis"]
 [ext_resource type="Script" uid="uid://daq2cwa138ju6" path="res://Dudes/Player/head_collider.gd" id="5_bubop"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bubop"]
+radius = 0.596
+height = 1.9
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_hvd00"]
 atlas = ExtResource("2_bubop")
 region = Rect2(0, 0, 500, 500)
@@ -66,13 +70,14 @@ height = 1.5390625
 collision_mask = 3
 script = ExtResource("1_4ntmi")
 
+[node name="CollisionShape3D" parent="." unique_id=1729396230 instance=ExtResource("4_gwnis")]
+shape = SubResource("CapsuleShape3D_bubop")
+
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=745327989]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_x0cbc")
 script = ExtResource("3_hvd00")
-
-[node name="CollisionShape3D" parent="." unique_id=1729396230 instance=ExtResource("4_gwnis")]
 
 [node name="HeadCollider" type="Area3D" parent="." unique_id=870413027]
 collision_layer = 0
