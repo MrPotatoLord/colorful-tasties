@@ -13,3 +13,7 @@ func _exit_tree() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	left_panel.position.x = lerp(left_panel.position.x, 0.0, 0.2)
+
+
+func _on_menu_button_quit_pressed() -> void:
+	GM.Main.exit_game()

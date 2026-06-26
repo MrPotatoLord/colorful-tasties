@@ -1,10 +1,20 @@
 [gd_scene format=3 uid="uid://o6vae58wfj6"]
 
+[ext_resource type="Script" uid="uid://xrgiq30pwcgu" path="res://Environments/UI/title.gd" id="1_0c3ih"]
+[ext_resource type="Texture2D" uid="uid://k3jbmjboio8q" path="res://textures/UI/title.png" id="1_d7bnr"]
 [ext_resource type="Texture2D" uid="uid://d4m8k8foxmlrb" path="res://textures/UI/title_title.png" id="1_oup50"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d7bnr"]
 atlas = ExtResource("1_oup50")
-region = Rect2(40.5, 11.5, 467, 200)
+region = Rect2(40.5, 11.5, 462, 201)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oup50"]
+atlas = ExtResource("1_oup50")
+region = Rect2(193.5, 239.5, 124, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c3ih"]
+atlas = ExtResource("1_oup50")
+region = Rect2(202.5, 324.5, 114, 70)
 
 [node name="Title" type="Control" unique_id=1759156880]
 layout_mode = 3
@@ -13,6 +23,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_0c3ih")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1522256294]
+modulate = Color(0.72464263, 0.7246426, 0.7246426, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("1_d7bnr")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=611047354]
 layout_mode = 1
@@ -24,4 +43,36 @@ anchor_bottom = 0.45229635
 offset_right = 0.3449707
 offset_bottom = -0.4800415
 texture = SubResource("AtlasTexture_d7bnr")
+metadata/_edit_use_anchors_ = true
+
+[node name="Play" type="TextureButton" parent="." unique_id=11728082]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41864586
+anchor_top = 0.5510741
+anchor_right = 0.52997386
+anchor_bottom = 0.67714816
+offset_left = 0.19995117
+offset_top = -0.16003418
+offset_right = -0.08154297
+offset_bottom = -0.32000732
+texture_normal = SubResource("AtlasTexture_oup50")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="TextureButton" parent="." unique_id=1461158177]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42358336
+anchor_top = 0.7434075
+anchor_right = 0.5285387
+anchor_bottom = 0.85748154
+offset_left = 0.7199707
+offset_top = 0.11993408
+offset_right = -0.48010254
+offset_bottom = -0.08001709
+texture_normal = SubResource("AtlasTexture_0c3ih")
+ignore_texture_size = true
+stretch_mode = 0
 metadata/_edit_use_anchors_ = true

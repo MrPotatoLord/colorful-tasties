@@ -15,3 +15,4 @@ func _on_timeline_started():
 	is_talking = true
 func _on_timeline_ended():
 	is_talking = false
+

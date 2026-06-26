@@ -1,6 +1,7 @@
 extends Control
 
 signal gting(difference: float)
+signal pressed()
 
 @export var text := "EQUIPMENT"
 @export_color_no_alpha var background := Color(0.0, 0.533, 0.718)
@@ -76,3 +77,7 @@ func _update_font_size(target_center: float, self_center: float) -> void:
 		last_applied_font_size = new_font_size
 
 	last_target_center = target_center
+
+
+func _on_button_pressed() -> void:
+	pressed.emit()
