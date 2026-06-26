@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://o6vae58wfj6"]
+
+[ext_resource type="Texture2D" uid="uid://d4m8k8foxmlrb" path="res://textures/UI/title_title.png" id="1_oup50"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7bnr"]
+atlas = ExtResource("1_oup50")
+region = Rect2(40.5, 11.5, 467, 200)
+
+[node name="Title" type="Control" unique_id=1759156880]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=611047354]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.240625
+anchor_top = 0.06481481
+anchor_right = 0.7487943
+anchor_bottom = 0.45229635
+offset_right = 0.3449707
+offset_bottom = -0.4800415
+texture = SubResource("AtlasTexture_d7bnr")
+metadata/_edit_use_anchors_ = true

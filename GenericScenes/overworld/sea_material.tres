@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://33x3wg7rn7ol"]
 
-[ext_resource type="Shader" uid="uid://b0juns0obs6jr" path="res://GenericScenes/overworld/sea_color_vertex.gdshader" id="1_5f66h"]
+[ext_resource type="Shader" uid="uid://b0juns0obs6jr" path="res://GenericScenes/Overworld/sea_color_vertex.gdshader" id="1_5f66h"]
 
 [resource]
 render_priority = 0

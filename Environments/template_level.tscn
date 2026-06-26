@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c1363ei0t5irh" path="res://textures/grass.png" id="1_r7kk3"]
 [ext_resource type="PackedScene" uid="uid://coswhyjln7bry" path="res://Dudes/Player/player.tscn" id="2_a8qx8"]
 [ext_resource type="PackedScene" uid="uid://cswq3h88cl4vu" path="res://Dudes/turtle.tscn" id="3_a8qx8"]
-[ext_resource type="Material" uid="uid://33x3wg7rn7ol" path="res://GenericScenes/overworld/sea_material.tres" id="3_rrn2u"]
+[ext_resource type="Material" uid="uid://33x3wg7rn7ol" path="res://GenericScenes/Overworld/sea_material.tres" id="3_rrn2u"]
 [ext_resource type="Script" uid="uid://b8gkdwlvq5s3q" path="res://GenericScenes/Battle/airh_fighter.gd" id="4_x0gcc"]
 [ext_resource type="PackedScene" uid="uid://v0w7vmg3dsfo" path="res://TempDelete/node.tscn" id="5_ni3xp"]
 [ext_resource type="PackedScene" uid="uid://c4hf6rk6rdufy" path="res://textures/GenericModels/table.blend" id="5_x0gcc"]
